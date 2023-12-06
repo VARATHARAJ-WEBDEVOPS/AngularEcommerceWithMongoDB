@@ -1,0 +1,83 @@
+<div class="dashboard">
+    <app-admin-navbar class="nav"></app-admin-navbar>
+    <div class="dashboardContainer">
+        <h1 class="title">Admin read</h1>
+        <i class="bi bi-search" id="serachIcon"></i>
+        <div class="bsSearchbar">
+            <div class="searchBarIcon">
+                <i class="bi bi-search"></i>
+            </div>
+            <input type="text" placeholder="Search Products....">
+        </div>
+        <div class="header">
+
+        </div>
+        <div class="tableContainer">
+            <table>
+                <thead>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Category</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products" >
+                        <td>{{product.productname}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.stock}}</td>
+                        <td>{{product.category}}</td>
+                        <td style=" padding-inline: 0 !important; padding-block: 0 !important;"><img [src]="product.imgUrl" alt="Product" ></td>
+                        <td>
+                            <button (click)="editAction(product)" style="color: rgb(0, 68, 255);"><i class="bi bi-pencil-square"></i></button>
+                            <button (click)="deleteProduct()" style="color: red;"><i class="bi bi-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="editPage" *ngIf="isEditContainer">
+    <div class="editContainer">
+        <div class="textBoxContainer" [formGroup]="productForm">
+            <div class="inputSet">
+                <p>Product Name</p>
+                <input type="text" placeholder="Ex. Aachi masala" name=" productname" class="name" formControlName="productname" >
+            </div>
+            <div class="inputSet" id="smallInput">
+                <p>Qty</p>
+                <input type="text" placeholder="Ex. 20g / 1l / 2kg" name="quantity" class="phone" formControlName="quantity" >
+            </div>
+            <div class="inputSet" id="smallInput">
+                <p>Stock </p>
+                <input type="number" placeholder="stock in pics" name="stock" class="Password" formControlName="stock" >
+            </div>
+            <div class="inputSet">
+                <p>Category</p>
+                <input type="text" placeholder="Ex. groceries" name="category" class="Password" formControlName="category" >
+            </div>
+            <div class="inputSet">
+                <p>Image *1:1 format</p>
+                <input type="text" placeholder="Ex. https//image.jpg" name="imgUrl" class="Password" formControlName="imgUrl">
+            </div>
+            <div class="inputSet">
+                <p>Price</p>
+                <input type="number" placeholder="Ex. 200/-" name="price" class="Password" formControlName="price" >
+            </div>
+
+        </div>
+        <div class="actionButtonContainer" >
+            <button (click)="isEditContainer = false" style="background-color: rgb(212, 3, 3);" id="resetButton">
+                Back
+            </button>
+            <button (click)="updatePoduct()" style="background-color: rgb(0, 105, 0);" id="createButton">
+                Update
+            </button>
+        </div>
+    </div>
+</div>

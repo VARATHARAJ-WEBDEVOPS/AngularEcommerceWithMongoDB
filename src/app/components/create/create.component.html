@@ -1,0 +1,42 @@
+<div class="dashboard">
+    <app-admin-navbar class="nav"></app-admin-navbar>
+    <div class="dashboardContainer">
+        <h1 class="title">Admin create</h1>
+
+        <div class="textBoxContainer">
+            <div class="inputSet">
+                <p>Product Name</p>
+                <input type="text" placeholder="Ex. Aachi masala" name=" productname" class="name"  [(ngModel)]="productModel. productname">
+            </div>
+            <div class="inputSet" id="smallInput">
+                <p>Qty</p>
+                <input type="text" placeholder="Ex. 20g / 1l / 2kg" name="quantity" class="phone" [(ngModel)]="productModel.quantity">
+            </div>
+            <div class="inputSet" id="smallInput">
+                <p>Stock </p>
+                <input type="number" placeholder="stock in pics" name="stock" class="Password" [(ngModel)]="productModel.stock">
+            </div>
+            <div class="inputSet">
+                <p>Category</p>
+                <input type="text" placeholder="Ex. groceries" name="category" class="Password" [(ngModel)]="productModel.category">
+            </div>
+            <div class="inputSet">
+                <p>Image *1:1 format</p>
+                <input type="text" placeholder="Ex. https//image.jpg" name="imgUrl" class="Password" [(ngModel)]="productModel.imgUrl">
+            </div>
+            <div class="inputSet">
+                <p>Price</p>
+                <input type="number" placeholder="Ex. 200/-" name="price" class="Password" [(ngModel)]="productModel.price">
+            </div>
+
+        </div>
+        <div class="actionButtonContainer">
+            <button (click)="resetForm()" style="background-color: rgb(212, 3, 3);" id="resetButton">
+                Reset
+            </button>
+            <button (click)="validation()" style="background-color: rgb(0, 105, 0);" id="createButton">
+                Create
+            </button>
+        </div>
+    </div>
+</div>

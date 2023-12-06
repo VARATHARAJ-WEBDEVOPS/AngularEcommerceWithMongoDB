@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AngularEcommerceWithMongoDB": {
+    "AngularWithCouchDB": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-ecommerce-with-mongo-db",
+            "outputPath": "dist/angular-with-couch-db",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "AngularEcommerceWithMongoDB:build:production"
+              "browserTarget": "AngularWithCouchDB:build:production"
             },
             "development": {
-              "browserTarget": "AngularEcommerceWithMongoDB:build:development"
+              "browserTarget": "AngularWithCouchDB:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AngularEcommerceWithMongoDB:build"
+            "browserTarget": "AngularWithCouchDB:build"
           }
         },
         "test": {
@@ -94,5 +94,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "a3d3591b-3dab-45e6-961b-cdaa9b3db265"
   }
 }

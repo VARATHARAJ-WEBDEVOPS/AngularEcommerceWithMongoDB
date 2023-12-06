@@ -1,0 +1,25 @@
+<div class="dashboard">
+    <app-user-navbar class="nav"></app-user-navbar>
+    <div class="dashboardContainer">
+        <h1 class="title">CouchShop</h1>
+        <i class="bi bi-search" id="serachIcon"></i>
+        <div class="bsSearchbar">
+            <div class="searchBarIcon">
+                <i class="bi bi-search"></i>
+            </div>
+            <input type="text" placeholder="Search Products....">
+        </div>
+        <div class="header">
+
+        </div>
+        <div class="productContainer">
+            <div class="productCard" *ngFor=" let product of products">
+                <div class="cardImage">
+                    <img [src]="product.imgUrl" alt="products">
+                </div>
+                <h1>{{product.productname}}</h1>
+                <h2>{{product.quantity}}</h2>
+            </div>
+        </div>
+    </div>
+</div>

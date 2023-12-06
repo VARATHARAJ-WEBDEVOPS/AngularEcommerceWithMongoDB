@@ -1,0 +1,148 @@
+.dashboard {
+    width: 100%;
+    height: 100svh;
+    display: flex;
+}
+
+.dashboardContainer {
+    width: 90%;
+    height: 100%;
+    order: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
+    order: 1;
+    min-width: 10%;
+}
+
+.dashboardContainer .title {
+    font-size: 3vw;
+    position: absolute;
+    top: 2vw;
+    left: 2vw;
+    color: blueviolet;
+}
+
+.inputSet input::placeholder {
+    color: rgba(255, 255, 186, 0.555)
+}
+
+.inputSet p {
+    padding: 0;
+    font-size: 1.5vw;
+    color: black;
+    margin-block: 1vw;
+}
+
+.inputSet input {
+    padding: 1.5vw;
+    width: 23vw;
+    background-color: black;
+    border-radius: 1vw;
+    color: rgb(255, 255, 255);
+}
+
+#smallInput input{
+    width: 11.5vw !important;
+}
+
+.textBoxContainer{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    width: 80%;
+    margin-top: 2vw;
+}
+
+.actionButtonContainer {
+    display: flex;
+    margin-top: 1vw;
+}
+
+.actionButtonContainer button{
+    padding: 1vw;
+    width: 15vw;
+    border: none;
+    background: none;
+    font-size:1.5vw;
+    color: #fff;
+    border-radius: 0.5vw;
+    margin: 2vw;
+}
+
+#resetButton:hover {
+    background-color: rgb(165, 0, 0) !important;
+}
+
+#createButton:hover {
+    background-color: rgb(0, 66, 0) !important;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .actionButtonContainer{
+        margin-top: 1vh;
+    }
+
+    .actionButtonContainer button{
+        padding: 1.5vh;
+        width: 15vh;
+        border: none;
+        background: none;
+        font-size:2vh;
+        color: #fff;
+        border-radius: 0.5vh;
+        margin: 2vh;
+    }
+
+  .inputSet input {
+        padding: 2vh;
+        width: 23vh;
+        border-radius: 1vh;
+    }
+
+    #smallInput input{
+        width: 11.5vh !important;
+    }
+
+    .inputSet p {
+        padding: 0;
+        font-size: 1.5vh;
+        margin-block: 1vh;
+    }
+
+    .inputSet {
+        margin-block: 0.5vh;
+    }
+
+    .dashboardContainer  .title {
+        font-size: 3vh;
+        top: 2vh;
+        left: 2vh;
+    }
+
+    .dashboard {
+        width: 100%;
+        height: 100svh;
+        display: flex;
+        flex-direction: column;
+    } 
+
+    .dashboardContainer {
+        width: 100%;
+        height: 90%;
+        order: 1;
+    }
+
+    .nav {
+        order: 2;
+    min-height: 10%;
+    }
+}

@@ -1,0 +1,20 @@
+<div class="login">
+
+    <div class="leftSide">
+        <h1>
+            CouchShop
+        </h1>
+    </div>
+    <div class="rightSide">
+        <h3>Login</h3>
+        <p>Log in your Ecommerce account</p>
+        <div class="inputSet">
+            <input type="number" placeholder="PhoneNumber" name="phone" [(ngModel)]="userModel.phone">
+        </div>
+        <div class="inputSet">
+            <input type="text" placeholder="Password" name="Password" [(ngModel)]="userModel.password">
+        </div>
+        <button (click)="validation()">LogIn</button>
+        <p>don't have an account?<span (click)="navigateToSignUp()"> SignUp</span></p>
+    </div>
+</div>

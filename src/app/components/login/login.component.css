@@ -1,0 +1,156 @@
+.login {
+    width: 100%;
+    height: 100svh;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2.5vw;
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    color: blueviolet;
+}
+
+.leftSide {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    order: 2;
+    background-image: url('https://images.pexels.com/photos/4173116/pexels-photo-4173116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+    width: 50%;
+    max-height: 100%;
+    background: rgb(218, 255, 255);
+    background: -moz-linear-gradient(313deg, rgba(218, 255, 255, 1) 0%, rgba(255, 235, 191, 1) 100%);
+    background: -webkit-linear-gradient(313deg, rgba(218, 255, 255, 1) 0%, rgba(255, 235, 191, 1) 100%);
+    background: linear-gradient(313deg, rgba(218, 255, 255, 1) 0%, rgba(255, 235, 191, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#daffff", endColorstr="#ffebbf", GradientType=1);
+}
+
+h3 {
+    font-size: 3vw;
+    color: blueviolet;
+}
+
+p {
+    font-size: 1.5vw;
+    padding: 2vw;
+    color: rgba(0, 0, 0, 0.568);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 186, 0.767)
+}
+
+.inputSet p {
+    padding: 0;
+    font-size: 1.5vw;
+    color: black;
+    margin-block: 1vw;
+}
+
+input {
+    padding: 1.5vw;
+    width: 23vw;
+    background-color: black;
+    border-radius: 1vw;
+    color: rgb(255, 255, 255);
+}
+
+.inputSet {
+    margin-block: 0.5vw;
+}
+
+button {
+    width: 25.5vw;
+    padding: 1.3vw;
+    background-color: blueviolet;
+    color: #fff;
+    border: none;
+    border-radius: 1vw;
+    margin-top: 2vw;
+    margin-bottom: 0.5vw;
+}
+
+button:hover{
+    background-color: rgb(67, 18, 112);
+}
+
+span {
+    color: rgb(0, 102, 255);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+span:hover{
+    color: rgb(0, 39, 97);
+}
+
+
+@media only screen and (max-width: 767px) {
+    .leftSide {
+        width: 100%;
+        height: 50%;
+        order: 1;
+    }
+
+    .rightSide {
+        width: 100%;
+        height: 50%;
+        order: 2;
+    }
+
+    h3 {
+        font-size: 3vh;
+    }
+
+    p {
+        font-size: 1.5vh;
+        padding: 2vh;
+    }
+
+    input {
+        padding: 2vh;
+        width: 23vh;
+        border-radius: 1vh;
+    }
+
+    .inputSet p {
+        padding: 0;
+        font-size: 1.5vh;
+        margin-block: 1vh;
+    }
+
+    .inputSet {
+        margin-block: 0.5vh;
+    }
+
+    button {
+        width: 27vh;
+        padding: 1.7vh;
+    border-radius: 1vw;
+    margin-top: 2vh;
+    margin-bottom: 0.5vh;
+    }
+
+    h1 {
+        font-size: 2.5vh;
+        position: absolute;
+        top: 2vh;
+        right: 2vh;
+        color: blueviolet;
+    }
+}

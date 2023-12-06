@@ -1,0 +1,23 @@
+<div class="signup">
+
+    <div class="leftSide">
+        <h1>
+            CouchShop
+        </h1>
+    </div>
+    <div class="rightSide">
+        <h3>Signup</h3>
+        <p>Sign up your Ecommerce account</p>
+        <div class="inputSet">
+            <input type="text" placeholder="UserName" name="name" [(ngModel)]="userModel.name">
+        </div>
+        <div class="inputSet">
+            <input type="number" placeholder="PhoneNumber" name="phone" [(ngModel)]="userModel.phone">
+        </div>
+        <div class="inputSet">
+            <input type="text" placeholder="Password" name="Password" [(ngModel)]="userModel.password">
+        </div>
+        <button (click)="signup()">SignUp</button>
+        <p>Already have an account?<span (click)="navigateToLogin()"> LogIn</span></p>
+    </div>
+</div>

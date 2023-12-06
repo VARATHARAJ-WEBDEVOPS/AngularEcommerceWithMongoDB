@@ -1,0 +1,50 @@
+.home {
+    width: 100%;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(221,255,248);
+    background: -moz-linear-gradient(312deg, rgba(221,255,248,1) 0%, rgba(255,220,252,1) 050%, rgba(221,255,248,1) 100%);
+    background: -webkit-linear-gradient(312deg, rgba(221,255,248,1) 0%, rgba(255,220,252,1) 050%, rgba(221,255,248,1) 100%);
+    background: linear-gradient(312deg, rgba(221,255,248,1) 0%, rgba(255,220,252,1) 050%, rgba(221,255,248,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ddfff8",endColorstr="#ddfff8",GradientType=1);
+}
+
+
+h1 {
+    font-size: 2vw;
+}
+
+button {
+    margin: 3vw;
+    padding: 1.5vw;
+    width: 15vw;
+    font-size: 1.5vw;
+    border-radius: 1vw;
+    border: none;
+    background-color: rgb(113, 28, 192);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adjust values as needed */
+}
+
+button:hover {
+    background-color: rgb(65, 21, 107);
+}
+
+
+@media only screen and (max-width: 767px) {
+    h1 {
+        font-size: 2vh;
+    }
+
+    button {
+        margin: 3vh;
+        padding: 1.5vh;
+        width: 15vh;
+        font-size: 1.5vh;
+        border-radius: 1vh;
+    }
+
+}
