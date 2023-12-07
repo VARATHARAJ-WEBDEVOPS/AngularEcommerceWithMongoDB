@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 
 export class UserService {
 
-  private readonly baseUrl = 'http://localhost:3001/api';
+  private readonly baseUrl = 'https://nodeapiv1.onrender.com/api';
   databaseName: string = 'users';
 
   constructor(private http: HttpClient) { }

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ProductService {
 
 
-  private readonly baseUrl = 'http://localhost:3001/api';
+  private readonly baseUrl = 'https://nodeapiv1.onrender.com/api';
   databaseName: string = 'product';
 
   constructor(private http: HttpClient) { }
