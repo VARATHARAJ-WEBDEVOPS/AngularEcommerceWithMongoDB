@@ -29,6 +29,7 @@ export class AdminNavbarComponent {
       cancelButtonText: 'No, keep it'
     }).then((result) => {
       if (result.isConfirmed) {
+        localStorage.removeItem('adminToken');
         this.router.navigateByUrl('/');
       }
     });

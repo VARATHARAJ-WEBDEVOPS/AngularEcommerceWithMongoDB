@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { APIService } from 'src/app/service/api.service';
+import { Router } from '@angular/router';
+import { ProductService } from 'src/app/service/product/product.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,10 +19,14 @@ export class CreateComponent implements OnInit {
     price: null
   }
 
-  constructor(private API: APIService) { }
+  constructor( private router: Router,
+    private PRODUCT_API: ProductService) { }
 
   ngOnInit(): void {
-
+    const token = localStorage.getItem('adminToken');
+    if (!token) {
+      this.router.navigateByUrl('');
+    }
   }
 
   alert(message: string) {
@@ -45,15 +50,15 @@ export class CreateComponent implements OnInit {
       this.alert('Negative values are not valid');
     } else {
       console.log(this.productModel);
-      this.API.createProduct(this.productModel).subscribe((res) => {
+      this.PRODUCT_API.createProduct(this.productModel).subscribe((res) => {
         console.log(res);
         this.resetForm();
-          Swal.fire({
-            title: 'Yep!',
-            text: 'Item Created',
-            icon: 'success',
-            confirmButtonText: 'Okey!'
-          });
+        Swal.fire({
+          title: 'Yep!',
+          text: 'Item Created',
+          icon: 'success',
+          confirmButtonText: 'Okey!'
+        });
       });
     }
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { APIService } from 'src/app/service/api.service';
+import { ProductService } from 'src/app/service/product/product.service';
+import { UserService } from 'src/app/service/user/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,23 +13,23 @@ export class DashboardComponent implements OnInit {
   userData: any;
   products: any;
 
-  constructor (private API: APIService,
+  constructor (private API: UserService,
+    private Product_API: ProductService,
     private router: Router) {}
 
   ngOnInit(): void {
 
     this.userId = localStorage.getItem('userToken');
-
-    // if (!this.userId) {
-    //   this.router.navigateByUrl('');
-    // }
+    if (!this.userId) {
+      this.router.navigateByUrl('');
+    }
     this.getAllProducts();
   }
 
   getAllProducts() {
-    this.API.getAllproducts().subscribe( (res) => {
+    this.Product_API.getAllproducts().subscribe( (res) => {
       console.log(res);
-      this.products = res.rows.map((row: any) => row.doc);
+      this.products = res
     });
   }
 

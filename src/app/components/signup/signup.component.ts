@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { APIService } from 'src/app/service/api.service';
+import { UserService } from 'src/app/service/user/user.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 export class SignupComponent implements OnInit {
 
   constructor(private router: Router,
-    private API: APIService) { }
+    private API: UserService) { }
 
   userModel: any = {
     name: '',
@@ -21,8 +21,12 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     const token = localStorage.getItem('userToken');
+    const admin = localStorage.getItem('adminToken');
     if (token) {
       this.router.navigateByUrl('dashboard');
+    } else if (admin) {
+      this.router.navigateByUrl('create');
+
     }
   }
 
@@ -73,25 +77,23 @@ export class SignupComponent implements OnInit {
   }
 
   checkExistingUser() {
-    this.API.searchDocumentsByPhone(this.userModel.phone).subscribe((response: any) => {
-      if (response.docs && response.docs.length > 0) {
-        Swal.fire({
-          title: 'Oops!',
-          text: 'This PhoneNumber is Already Used!',
-          icon: 'error',
-          confirmButtonText: 'Got it!'
-        });
-      } else {
-        this.createUser();
-      }
+    this.API.searchDocumentsByPhone(this.userModel.phone).subscribe(Response => {
+      Swal.fire({
+              title: 'Oops!',
+              text: 'This PhoneNumber is Already Used!',
+              icon: 'error',
+              confirmButtonText: 'Got it!'
+            });
+    },error => {
+      this.createUser();
     });
   }
 
   createUser() {
     this.API.createDocument(this.userModel).subscribe((res => {
       console.log(res);
-      if (res && res.ok) {
-        localStorage.setItem('userToken', res.id);
+      if (res) {
+        localStorage.setItem('userToken', res._id);
         this.router.navigateByUrl('dashboard');
       }
     }));

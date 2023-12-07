@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { APIService } from 'src/app/service/api.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { ProductService } from 'src/app/service/product/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-read',
@@ -13,10 +14,16 @@ export class ReadComponent implements OnInit {
   isEditContainer: boolean = false;
   productForm!: FormGroup;
 
-  constructor(private API: APIService,
+  constructor(
+    private Product_API: ProductService,
+    private router: Router,
     private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    const token = localStorage.getItem('adminToken');
+    if (!token) {
+      this.router.navigateByUrl('');
+    }
     this.getallProducts();
 
     this.productForm = this.fb.group({
@@ -26,8 +33,7 @@ export class ReadComponent implements OnInit {
       category: [''],
       imgUrl: [''],
       price: [null],
-      _id: [''],
-      _rev: [''],
+      _id: ['']
     });
   }
 
@@ -41,8 +47,8 @@ export class ReadComponent implements OnInit {
   }
 
   getallProducts() {
-    this.API.getAllproducts().subscribe((Response) => {
-      this.products = Response.rows.map((row: any) => row.doc);
+    this.Product_API.getAllproducts().subscribe((Response) => {
+      this.products = Response
       console.log(this.products);
 
     });
@@ -64,7 +70,7 @@ export class ReadComponent implements OnInit {
       cancelButtonText: 'No, keep it'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.API.updateProduct(this.productForm.value._id, this.productForm.value)
+        this.Product_API.updateProduct(this.productForm.value._id, this.productForm.value)
           .subscribe((res) => {
             console.log(res);
             this.getallProducts();
@@ -85,7 +91,7 @@ export class ReadComponent implements OnInit {
       cancelButtonText: 'No, keep it'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.API.deleteProduct(this.productForm.value._id, this.productForm.value._rev)
+        this.Product_API.deleteProduct(this.productForm.value._id, this.productForm.value._rev)
           .subscribe((res) => {
             console.log(res);
             this.getallProducts();

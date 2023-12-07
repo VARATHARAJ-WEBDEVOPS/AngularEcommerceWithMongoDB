@@ -12,8 +12,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     const token = localStorage.getItem('userToken');
+    const admin = localStorage.getItem('adminToken');
     if (token) {
       this.router.navigateByUrl('dashboard');
+    } else if (admin) {
+      this.router.navigateByUrl('create');
+
     }
   }
 
